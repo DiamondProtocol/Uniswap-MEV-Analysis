@@ -140,7 +140,7 @@ def fetchAddLiquidity(chain, subgraphURL, pool, startTime=1659283200, endTime=16
     cousorTime = startTime
     timeStep = 86400
     scriptDir = Path(__file__).parent.absolute()
-    rawDataFilePath = f'{scriptDir}//data//{chain}_addliquidity.txt'
+    rawDataFilePath = f'{scriptDir}//data//{chain}_addLiquidity.txt'
     if force:
         if os.path.exists(rawDataFilePath):
             os.remove(rawDataFilePath)
@@ -183,13 +183,13 @@ def fetchAddLiquidity(chain, subgraphURL, pool, startTime=1659283200, endTime=16
 
 def AddLiquidity2CSV(chain, switch=False):
     scriptDir = Path(__file__).parent.absolute()
-    file1 = open(f'{scriptDir}//data//{chain}_addliquidity.txt', 'r')
+    file1 = open(f'{scriptDir}//data//{chain}_addLiquidity.txt', 'r')
     lines = file1.readlines()
     if len(lines) != 0:
         fileOutputDir = f'{scriptDir}'
         if not os.path.exists(fileOutputDir):
             os.mkdir(fileOutputDir)
-        fileOutputFileth = f'{fileOutputDir}//data//{chain}_addliquidity.csv'
+        fileOutputFileth = f'{fileOutputDir}//data//{chain}_addLiquidity.csv'
         if os.path.exists(fileOutputFileth):
             os.remove(fileOutputFileth)
         f = open(fileOutputFileth, 'w')
@@ -282,13 +282,13 @@ def fetchRemoveLiquidity(chain, subgraphURL, pool, startTime=1659283200, endTime
 
 def RemoveLiquidity2CSV(chain, switch=False):
     scriptDir = Path(__file__).parent.absolute()
-    file1 = open(f'{scriptDir}//data//{chain}_removeliquidity.txt', 'r')
+    file1 = open(f'{scriptDir}//data//{chain}_removeLiquidity.txt', 'r')
     lines = file1.readlines()
     if len(lines) != 0:
         fileOutputDir = f'{scriptDir}'
         if not os.path.exists(fileOutputDir):
             os.mkdir(fileOutputDir)
-        fileOutputFileth = f'{fileOutputDir}//data//{chain}_removeliquidity.csv'
+        fileOutputFileth = f'{fileOutputDir}//data//{chain}_removeLiquidity.csv'
         if os.path.exists(fileOutputFileth):
             os.remove(fileOutputFileth)
         f = open(fileOutputFileth, 'w')
@@ -317,21 +317,13 @@ def RemoveLiquidity2CSV(chain, switch=False):
             blockNumber += 1
             cwriter.writerow(row)
 
-
-endTime = int(time.time())
-startTime = endTime - 86400 * 180
-
 # for ethereum
 chain = config['chain']
 subgraphURL = config['subgraphURL']
 pool = config['pool']
 
-# subgraphURL = "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3"
-# pool = '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640'
-
-
 def main():
-    endTime = int(time.time())  # current timestamp
+    endTime = int(time.time()) -3600  # current timestamp
     startTime = endTime - 86400 * 180  # start timestamp, default 180 days
     chain = config['chain']
     subgraphURL = config['subgraphURL']
