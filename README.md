@@ -11,7 +11,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 ## Download Data
-To replicate the results in the jupyter notebooks, you have to download the data first by running:
+To reproduce the results in the jupyter notebooks, you have to download the data first by running:
 ```
 python3 getData.py
 ```
