@@ -3,7 +3,7 @@ This MEV research is conducted for Uniswap Bounty #19. In this research, we dug 
 ## Research Paper
 https://coinomo.notion.site/Uniswap-Bounty-19-34df5d8d69e54b2ba10f5b5799758d26
 ## Getting Started 
-```python
+```bash
 git clone git@github.com:ZooWallet/Uniswap-MEV-Analysis.git
 cd uniswap-mev-analysis
 python3 -m venv .venv
